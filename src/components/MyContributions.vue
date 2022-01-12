@@ -111,7 +111,7 @@
         tableData: [],
         lineCon:[
           {title:'上海两日游路线',createTime:'2021-12-30 01:10:16',content:'Day1：豫园→外滩→东方明珠，Day2：静安寺→上海自然博物馆'},
-          {title:'成都三日游路线',createTime:'2021-12-30 01:10:16',content:'Day1：青城山都江堰，Day2：峨眉乐山，Day3：锦里、宽窄巷'},
+          {title:'北京三日游路线',createTime:'2021-10-27 16:08:43',content:'Day1：天安门广场，Day2：故宫，Day3：天坛→明十三陵'},
         ],
         hotelCon:[
           {title:'皇冠假日酒店',createTime:'2021-12-30 01:10:16',content:'交通便捷，价格合适，环境不错，窗明几净'},
