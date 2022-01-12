@@ -42,12 +42,6 @@
                       <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" :rules="rules"
                         placeholder="请输入内容" v-model="commentContent" v-show="show" style="margin-top:30px;width:800px">
                       </el-input>
-                      <!-- <el-upload class="upload-demo" action="./travel/create"
-                        :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove" v-show="scope.row.show"
-                        multiple :limit="3" :on-exceed="handleExceed" :file-list="fileList" style="margin-left:20px;display:inline-block">
-                        <el-button size="small" type="primary">上传图片</el-button>
-                        <div slot="tip" class="el-upload__tip" style="margin-left:20px;display:inline-block">只能上传jpg/png文件，且不超过500kb</div>
-                      </el-upload> -->
                       <el-button type="primary" icon="el-icon-edit" 
                         style="margin-top:30px" plain v-show="show" @click="comment(scope.$index)">发布评论</el-button>
                       
@@ -91,7 +85,7 @@
 <script>
   import NavMenu from "../components/common/Nav";
   export default {
-    name: "QuestionDetails",
+    name: "TravelRecord",
     components: {
       NavMenu
     },
@@ -160,60 +154,7 @@
       beforeRemove(file, fileList) {
         return this.$confirm(`确定移除 ${ file.name }？`);
       },
-      // async likeWhether(){
-      //   var length = this.tableDataText.length;
-      //   for(let i=0;i<length;i++){
-      //     let a = await this.likeWhether1(i);
-      //   }
-      //   setTimeout(()=>{
-      //     this.likeWhether2();
-      //   },1000)
-      // },
-      // likeWhether1(i){
-      //   console.log("hello"+i);
-      //   this.$axios.get('./like/whether',{
-      //       params:{
-      //         commentId:this.tableDataText[i].id,
-      //         userId:window.localStorage.getItem("userId")
-      //       }
-      //     }).then(res =>{
-      //       if(res.data.data.data===true){
-      //           this.tableDataColor.push({
-      //             id:this.tableDataText[i].id,
-      //             colorBefore:"#F56C6C",
-      //             colorAfter:"#909399"
-      //           })
-      //       }
-      //       else{
-      //          console.log("hello")
-      //          this.tableDataColor.push({
-      //             id:this.tableDataText[i].id,
-      //             colorBefore:"#909399",
-      //             colorAfter:"#F56C6C"
-      //           })
-      //       }
-      //       console.log(this.tableDataColor.length)
-      //     })
-      // },
-      // likeWhether2(){
-      //   console.log(this.tableDataColor);
-      //   var length = this.tableDataText.length;
-      //   for(var i=0;i<length;i++){
-      //     for(var j=0;j<length;j++){
-      //       if(this.tableDataText[i].id === this.tableDataColor[j].id){
-      //         this.tableData.push({
-      //           id:this.tableDataText[i].id,
-      //           userId:this.tableDataText[i].userId,
-      //           createTime:this.tableDataText[i].createTime,
-      //           content:this.tableDataText[i].content,
-      //           colorBefore:this.tableDataColor[j].colorBefore,
-      //           colorAfter:this.tableDataColor[j].colorAfter
-      //         })
-      //       }
-      //     }
 
-      //   }
-      // },
       good(row){
         this.$axios.post('./travel/like',{
           username:window.localStorage.getItem("username"),
@@ -290,8 +231,8 @@
         }).then(res =>{
           if(res.data != ''){
             this.$message.success("评论成功")
-            // location. reload()
-            // this.$router.go(2000)
+            location. reload()
+            this.$router.go(2000)
           }
           else{
             this.$message.error("评论失败")

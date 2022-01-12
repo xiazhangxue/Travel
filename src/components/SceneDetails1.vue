@@ -23,17 +23,17 @@
                   </div>
                 </el-col>
                 <el-col :span="15">
-                  <div style="font-family: Microsoft YaHei;font-size: 0.30rem;margin-bottom:1.5rem;margin-right: 0.5rem" class="content">
+                  <div style="font-family: Microsoft YaHei;font-size: 0.30rem;margin-bottom:1.2rem;margin-right: 0.5rem" class="content">
                     地址：{{address}}
                   </div>
                 </el-col>
-                <!-- <el-col :span="3"><el-button type="primary" round>推荐路线</el-button></el-col>
-                <el-col :span="3"><el-button type="primary" round>推荐酒店</el-button></el-col>
+                <el-col :span="9"><el-button type="primary" round @click="toRecommend()">推荐内容</el-button></el-col>
+                <!-- <el-col :span="3"><el-button type="primary" round>推荐酒店</el-button></el-col>
                 <el-col :span="3"><el-button type="primary" round>推荐美食</el-button></el-col> -->
                 <div style="cursor: pointer;font-size:0.35rem;margin-left:10em;margin-top:10em;margin-bottom: 5em" class="question">
                   <br/>
                 </div>
-                <div style="font-size:0.35rem;margin-left:10em;margin-top:10em;margin-bottom: -1em" class="question">
+                <div style="font-size:0.35rem;margin-left:10em;margin-top:15em;margin-bottom: -1em" class="question">
                   精彩评论
                 </div>
                 <el-col :span="24"> <div class="table">
@@ -103,33 +103,41 @@
       }
     },
     created(){
-      // this.$axios.get('./question/',{
-      //   params:{
-      //     from:0,
-      //     sum:20,
-      //     type:"createTime"
-      //   }
-      // }) .then((res)=>{
-      //   this.tableData = res.data.data.data;
-      // })
+    
     },
     methods:{
       comments(){
-        this.$axios.post('./scene/comment',{
-          username:window.localStorage.getItem("username"),
-          sceneID:window.localStorage.getItem("sceneID"),
-          content:this.comment,
-          score:this.value
-        }).then(res =>{
-          if(res.status === 200){
-            this.$message.success("评价成功")
-          }
-          else{
-            this.$message.error("评价失败");
-          }
-        }).catch(error =>{
-          this.$message.error("评价请求失败")
-        })
+        // this.$axios.post('./scene/comment',{
+        //   username:window.localStorage.getItem("username"),
+        //   sceneID:window.localStorage.getItem("sceneID"),
+        //   content:this.comment,
+        //   score:this.value
+        // }).then(res =>{
+        //   if(res.status === 200){
+        //     this.$message.success("评价成功")
+        //   }
+        //   else{
+        //     this.$message.error("评价失败");
+        //   }
+        // }).catch(error =>{
+        //   this.$message.error("评价请求失败")
+        // })
+        if(this.comment == ""){
+          this.$message.error("评价内容不能为空");
+        }
+        else if(this.value == ""){
+          this.$message.error("评价分数不能为空")
+        }
+        else{
+          this.$message.success("评价成功，等待审核")
+          setTimeout(() =>{
+            location.reload();
+            this.$router.go(2000)
+          },1000); 
+        }
+      },
+      toRecommend(){
+        this.$router.replace('/sceneRecommend1')
       }
     }
 

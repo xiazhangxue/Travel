@@ -6,7 +6,8 @@ import SceneDetails1 from '@/components/SceneDetails1'
 import Register from '@/components/Register'
 import TravelRecord from '@/components/TravelRecord'
 import HelloWorld from '@/components/HelloWorld'
-
+import SceneRecommend from '@/components/SceneRecommend'
+import SceneRecommend1 from '@/components/SceneRecommend1'
 import MyTravels from '@/components/MyTravels'
 import MyComments from '@/components/MyComments'
 import MyCollections from '@/components/MyCollections'
@@ -107,7 +108,22 @@ export const router = new Router({
         requireAuth:true
       }
     },
-
+    {
+      path: '/sceneRecommend',
+      name: 'SceneRecommend',
+      component: SceneRecommend,
+      meta:{
+        requireAuth:true
+      }
+    },
+    {
+      path: '/sceneRecommend1',
+      name: 'SceneRecommend1',
+      component: SceneRecommend1,
+      meta:{
+        requireAuth:true
+      }
+    },
   ]
 });
 
