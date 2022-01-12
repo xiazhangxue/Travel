@@ -28,7 +28,7 @@
             <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="用户名"></el-input>
           </el-form-item>
           <el-form-item  prop="password" label-width="100px" label="密码">
-            <el-input type="text" v-model="loginForm.password" auto-complete="off" placeholder="密码"></el-input>
+            <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码" show-password=""></el-input>
           </el-form-item>
           <el-form-item style="width: 100%;margin-top:14px;padding-top: 80px">
             <el-button id="login_button" type="primary" style="width: 50%;border: none" v-on:click="login(loginForm)">登录</el-button>
@@ -65,14 +65,15 @@
     methods: {
       login (formName) {
         if(this.loginForm.identity!=''){
-          this.$axios.post('./auth/user/login',{
+          this.$axios.post('/auth/user/login',{
             username:this.loginForm.username,
             password:this.loginForm.password
           })
             .then(resp => {
-              if (resp.status != 403) {
-                window.localStorage.setItem("username",this.loginForm.username)
-                window.localStorage.setItem("userid",resp.data.id)
+              if (resp.status === 200) {
+                window.localStorage.setItem("userId",resp.data.id)
+                window.localStorage.setItem("username",resp.data.username)
+                window.localStorage.setItem("password",resp.data.password)
                 this.$message.success('登录成功');
                 this.$router.replace('/travelRecord');
               }

@@ -7,16 +7,11 @@
       欢行
     </el-button>
     <el-submenu index="/login" style="float: right">
-      <template slot="title"><i class="el-icon-s-custom"></i>个人中心</template>
-      <el-menu-item @click="message"><i class="el-icon-bell"></i>我的消息</el-menu-item>
-      <el-menu-item @click="myQuestions"><i class="el-icon-user"></i>我发布的问题</el-menu-item>
-      <el-menu-item @click="history"><i class="el-icon-mobile-phone"></i>历史记录</el-menu-item>
+      <template slot="title"><i class="el-icon-s-custom"></i>我的</template>
+      <el-menu-item @click="personalCenter"><i class="el-icon-user"></i>个人中心</el-menu-item>
       <el-menu-item @click="quit"><i class="el-icon-switch-button"></i>退出登录</el-menu-item>
     </el-submenu>
-    <el-menu-item @click="submitQuestions" style="float: right"><i class="el-icon-edit"></i>景点</el-menu-item>
-    <!-- <el-menu-item @click="allQuestions" style="float: right"><i class="el-icon-search"></i>所有问题</el-menu-item>
-    <el-menu-item @click="hotQuestions" style="float: right"><i class="el-icon-star-off"></i>热门问题</el-menu-item>
-    <el-menu-item @click="knowledgeMap" style="float: right"><i class="el-icon-position"></i>知识图谱</el-menu-item> -->
+    <el-menu-item @click="scenes" style="float: right"><i class="el-icon-position"></i>景点</el-menu-item>
 
   </el-menu>
 </template>
@@ -71,24 +66,17 @@
       travelRecord(){
         this.$router.replace('/travelRecord')
       },
-      allQuestions(){
-        this.$router.replace('/allQuestions')
+
+      personalCenter(){
+        this.$router.replace('/personalCenter')
       },
-      knowledgeMap(){
-        this.$router.replace('/knowledgeMap')
+      travels(){
+        this.$router.replace('/personalCenter')
       },
-      submitQuestions(){
-        this.$router.replace('/submitQuestions')
-      },
-      message(){
-        this.$router.replace('/message')
-      },
-      myQuestions(){
-        this.$router.replace('/myQuestions')
-      },
-      history(){
-        this.$router.replace('/history')
+      scenes(){
+        this.$router.replace('/allScenes')
       }
+
     }
   }
 </script>

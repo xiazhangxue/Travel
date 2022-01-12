@@ -4,14 +4,16 @@ import Login from '@/components/Login'
 import SceneDetails from '@/components/SceneDetails'
 import SceneDetails1 from '@/components/SceneDetails1'
 import Register from '@/components/Register'
-import HotQuestions from '@/components/HotQuestions'
 import TravelRecord from '@/components/TravelRecord'
 import HelloWorld from '@/components/HelloWorld'
-import SubmitQuestions from '@/components/SubmitQuestions'
-import KnowledgeMap from '@/components/KnowledgeMap'
-import Message from '@/components/Message'
-import History from '@/components/History'
-import MyQuestions from '@/components/MyQuestions'
+
+import MyTravels from '@/components/MyTravels'
+import MyComments from '@/components/MyComments'
+import MyCollections from '@/components/MyCollections'
+import PersonalCenter from '@/components/PersonalCenter'
+import MyContributions from '@/components/MyContributions'
+import AllScenes from '@/components/AllScenes'
+
 
 Vue.use(Router);
 
@@ -58,53 +60,54 @@ export const router = new Router({
       }
     },
     {
-      path: '/hotQuestions',
-      name: 'HotQuestions',
-      component: HotQuestions,
+      path: '/myTravels',
+      name: 'MyTravels',
+      component: MyTravels,
       meta:{
         requireAuth:true
       }
     },
     {
-      path: '/submitQuestions',
-      name: 'SubmitQuestions',
-      component: SubmitQuestions,
+      path: '/myComments',
+      name: 'MyComments',
+      component: MyComments,
       meta:{
         requireAuth:true
       }
     },
     {
-      path: '/knowledgeMap',
-      name: 'KnowledgeMap',
-      component: KnowledgeMap,
+      path: '/myCollections',
+      name: 'MyCollections',
+      component: MyCollections,
       meta:{
         requireAuth:true
       }
     },
     {
-      path: '/message',
-      name: 'Message',
-      component: Message,
+      path: '/myContributions',
+      name: 'MyContributions',
+      component: MyContributions,
       meta:{
         requireAuth:true
       }
     },
     {
-      path: '/history',
-      name: 'History',
-      component: History,
+      path: '/personalCenter',
+      name: 'PersonalCenter',
+      component: PersonalCenter,
       meta:{
         requireAuth:true
       }
     },
     {
-      path: '/myQuestions',
-      name: 'MyQuestions',
-      component: MyQuestions,
+      path: '/allScenes',
+      name: 'AllScenes',
+      component: AllScenes,
       meta:{
         requireAuth:true
       }
     },
+
   ]
 });
 
